@@ -1,0 +1,197 @@
+/* Genel Sayarlar */
+/* Genel Ayarlar */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Ana Konteyner */
+.container {
+    background: rgb(233, 176, 231);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(56, 3, 40, 0.1);
+    width: 380px;
+    text-align: center;
+    position: relative; /* Çıkartmanın konumlanması için gerekli */
+}
+
+/* Çıkartmalı Başlık Alanı */
+h2 {
+    color: #4a0834;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    font-size: 1.8rem;
+}
+
+/* İşte O Çıkartma ( yıldız/Sembolü) */
+h2::after {
+    content: '⭐❤️'; 
+    position: absolute;
+    top: -20px;
+    right: -35px;
+    font-size: 2rem;
+    transform: rotate(20deg); /* Hafif yan durması için */
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2)); /* Gölge ile derinlik */
+}
+
+/* Giriş Kutusu burda */
+input {
+    width: 70%;
+    padding: 12px;
+    border: 2px solid #ed9bea;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #1b84ee;
+    box-shadow: 0 0 8px rgba(116, 185, 255, 0.4);
+}
+
+/* Ekleme Butonu */
+button {
+    padding: 12px 18px;
+    background-color: #d660bd;
+    color: rgb(249, 249, 249);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 5px;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+    background-color: #ecb6e5;
+    transform: scale(1.05); /* Üzerine gelince hafif büyür */
+}
+
+/* Not Listesi */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+li {
+    background: #edc4e9;
+    border-left: 5px solid #96048c; /* Yan tarafa renkli şerit */
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    animation: slideIn 0.4s ease-out;
+}
+
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* KATEGORİ SEÇİM KUTUSU BÖLÜMÜ */
+select {
+    width: 60%;               /* Kutuyu tam genişlik yapar */
+    padding: 10px;             /* İç boşluk */
+    margin-top: 15px;          /* Üstteki input ile arasına mesafe koyar */
+    border: 2px solid #f98cf5; /* Senin input renginle uyumlu pembe kenarlık */
+    border-radius: 10px;       /* Köşeleri yuvarlar */
+    background-color: rgb(236, 208, 236);   /* Arka plan rengi */
+    color: #510637;            /* Yazı rengini senin başlık renginle aynı yapar */
+    font-family: inherit;      /* Ana yazı tipini kullanır */
+    cursor: pointer;           /* Üstüne gelince el işareti çıkar */
+    outline: none;
+}
+
+select:focus {
+    border-color: #66053c;     /* Tıklayınca maviye döner (input ile uyumlu) */
+}
+/* --- YENİ EKLENEN FİLTRE BUTONLARI BÖLÜMÜ --- */
+
+.filter-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Butonları alt alta dizer */
+    gap: 10px;              /* Butonlar arasındaki boşluk */
+    width: 100%;            /* Konteynırı tam genişlik yapar */
+}
+
+.filter-container button {
+    width: 100%;             /* Butonları aynı boya getirir */
+    background-color: #4a0834; /* Senin koyu mor rengin */
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+/* Arka Plan Konteyneri */
+body {
+    background: linear-gradient(to bottom, #eef2f3, #d5a6bd); /* Hafif bir geçiş ekledik */
+    overflow: hidden; /* Baloncuklar ekrandan taşınca kaydırma çubuğu çıkmasın */
+}
+
+/* Baloncukların Genel Stili */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Not kutusunun arkasında kalması için */
+    margin: 0;
+    padding: 0;
+}
+
+.bubbles li {
+    position: absolute;
+    list-style: none;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2); /* Yarı şeffaf beyaz */
+    bottom: -150px; /* Ekranın altından başlasınlar */
+    animation: animate 25s linear infinite; /* Yukarı çıkış animasyonu */
+    border-radius: 50%; /* Yuvarlak yapar */
+}
+
+/* Farklı Boyutlarda ve Konumlarda Baloncuklar */
+.bubbles li:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
+.bubbles li:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+.bubbles li:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+.bubbles li:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
+.bubbles li:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+.bubbles li:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
+.bubbles li:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 7s; }
+.bubbles li:nth-child(8) { left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s; }
+.bubbles li:nth-child(9) { left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s; }
+.bubbles li:nth-child(10) { left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s; }
+
+/* Animasyon Tanımı */
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0; /* Altta kare başlasınlar */
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg); /* 1000px yukarı uç ve dön */
+        opacity: 0;
+        border-radius: 50%; /* Yukarı çıkınca tam yuvarlak ol */
+    }
+}

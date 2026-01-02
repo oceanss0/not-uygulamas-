@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Not Uygulamam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Not Defterim</h2>
+        <input type="text" id="noteInput" placeholder="Bir not yaz...">
+        <select id="categorySelect">
+    <option value="hepsi"> ⭐Genel</option>
+    <option value="bilgi"> ⭐bilgi</option>
+    <option value="Kişisel">💖 Kişisel</option>
+    <option value="iş"> ⭐İş</option>
+</select>
+        <button onclick="notEkle()">Ekle</button>
+        <div class="filter-container">
+    <button onclick="notlariFiltrele('Hepsi')">Hepsi</button>
+    <button onclick="notlariFiltrele('iş')">iş</button>
+    <button onclick="notlariFiltrele('bilgi')">⭐bilgi</button>
+    <button onclick="notlariFiltrele('Kişisel')">Kişisel</button>
+</div>
+
+<ul id="noteList"></ul>
+        <ul id="noteList"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
+<ul class="bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
